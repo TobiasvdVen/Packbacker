@@ -1,0 +1,19 @@
+Packbacker
+
+Goal: Make a tool to manage backpacking gear.
+
+Features:
+
+- Create base packs
+- Add items/gear, with weight
+- Sort by weight/category
+- Create trip packs, either blank or based on base pack
+- Add food/water, etc., weight scales with number of days in trip
+- Create perks for items/gear and assign them
+- Compare packs easily, in regards to weight/perks (included and optionally show missing perks)
+- Add notes to any item/gear/food/pack/trip
+- Add weight modifiers to items/gear, maybe based on perks or something? (Like MSR guardian weight is modified considering you could carry less water)
+- Keep track of things already owned and others in a wish list
+- Preview packs with certain items omitted/added/replaced
+
+- Keep option open for API, mobile app version,
