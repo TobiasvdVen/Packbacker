@@ -2,3 +2,7 @@
 Packbacker.WPF/obj
 *.user
 Packbacker.WPF/bin
+Packbacker.ViewModels/bin
+Packbacker.ViewModels/obj
+Packbacker.ViewModels.Design/bin
+Packbacker.ViewModels.Design/obj

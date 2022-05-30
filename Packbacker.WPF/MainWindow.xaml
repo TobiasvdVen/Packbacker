@@ -3,10 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Packbacker.WPF"
+        xmlns:local="clr-namespace:Packbacker.WPF.Views"
+        xmlns:design="clr-namespace:Packbacker.ViewModels.Design;assembly=Packbacker.ViewModels.Design"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+    <local:PackView DataContext="{Binding PackViewModel}" d:DataContext="{d:DesignInstance design:DesignPackViewModel, IsDesignTimeCreatable=True}"/>
 </Window>
