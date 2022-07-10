@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Packbacker.ViewModels;
-using System.Collections.Generic;
 using System.Windows;
 
 namespace Packbacker.WPF
@@ -21,16 +20,16 @@ namespace Packbacker.WPF
         private void ConfigureServices(ServiceCollection services)
         {
             services.AddSingleton<MainWindow>();
+
+            services.AddTransient<MainWindowViewModel>();
+            services.AddTransient<PackViewModel>();
         }
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
             MainWindow mainWindow = serviceProvider.GetRequiredService<MainWindow>();
 
-            mainWindow.DataContext = new MainWindowViewModel(
-                new PackViewModel(new List<string>() { "Backpack", "Tent", "Sleeping bag", "MSR Guardian" })
-                );
-
+            mainWindow.DataContext = serviceProvider.GetRequiredService<MainWindowViewModel>();
             mainWindow.Show();
         }
     }

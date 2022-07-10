@@ -6,3 +6,17 @@ Packbacker.ViewModels/bin
 Packbacker.ViewModels/obj
 Packbacker.ViewModels.Design/bin
 Packbacker.ViewModels.Design/obj
+_NCrunch_Packbacker
+Packbacker.Domain/bin
+Packbacker.Domain/obj
+Packbacker.Domain.Tests/bin
+Packbacker.Domain.Tests/obj
+Packbacker.MVVM/bin
+Packbacker.MVVM/obj
+Packbacker.MVVM.Tests/bin
+Packbacker.MVVM.Tests/obj
+Packbacker.MVVM.WPF/bin
+Packbacker.MVVM.WPF/obj
+Packbacker.ViewModels.Tests/bin
+Packbacker.ViewModels.Tests/obj
+Packbacker.WPF.Tests/obj

@@ -6,13 +6,13 @@
         {
         }
 
-        private static IEnumerable<string> MockItems()
+        private static IEnumerable<ItemViewModel> MockItems()
         {
-            return new List<string>()
+            return new List<ItemViewModel>()
             {
-                "Backpack",
-                "Tent",
-                "Sleeping Bag"
+                new ItemViewModel("Backpack", 2300),
+                new ItemViewModel("Tent", 1700),
+                new ItemViewModel("Sleeping Bag", 450)
             };
         }
     }

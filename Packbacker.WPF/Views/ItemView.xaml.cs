@@ -2,9 +2,9 @@
 
 namespace Packbacker.WPF.Views
 {
-    public partial class PackView : UserControl
+    public partial class ItemView : UserControl
     {
-        public PackView()
+        public ItemView()
         {
             InitializeComponent();
         }

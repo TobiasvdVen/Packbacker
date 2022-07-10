@@ -10,9 +10,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Packbacker.ViewModels", "Packbacker.ViewModels\Packbacker.ViewModels.csproj", "{CB660408-DAF9-4F63-B080-846CA3C91563}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Packbacker.ViewModels", "Packbacker.ViewModels\Packbacker.ViewModels.csproj", "{CB660408-DAF9-4F63-B080-846CA3C91563}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Packbacker.ViewModels.Design", "Packbacker.ViewModels.Design\Packbacker.ViewModels.Design.csproj", "{0ACCA6E8-AC02-4C46-AB3F-403BA58CF006}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Packbacker.ViewModels.Design", "Packbacker.ViewModels.Design\Packbacker.ViewModels.Design.csproj", "{0ACCA6E8-AC02-4C46-AB3F-403BA58CF006}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Packbacker.ViewModels.Tests", "Packbacker.ViewModels.Tests\Packbacker.ViewModels.Tests.csproj", "{C0ED1A19-CB89-40CC-8288-DE82A121DCF7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Packbacker.Domain", "Packbacker.Domain\Packbacker.Domain.csproj", "{C4F6AC77-861D-428E-BFF6-B5235459C1C1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Packbacker.Domain.Tests", "Packbacker.Domain.Tests\Packbacker.Domain.Tests.csproj", "{FC1FC1C0-4B1A-410D-B881-253DBC7E046B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Packbacker.WPF.Tests", "Packbacker.WPF.Tests\Packbacker.WPF.Tests.csproj", "{E4012852-4656-4F64-BD69-07DABAFF63B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +40,22 @@ Global
 		{0ACCA6E8-AC02-4C46-AB3F-403BA58CF006}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0ACCA6E8-AC02-4C46-AB3F-403BA58CF006}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0ACCA6E8-AC02-4C46-AB3F-403BA58CF006}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0ED1A19-CB89-40CC-8288-DE82A121DCF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0ED1A19-CB89-40CC-8288-DE82A121DCF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0ED1A19-CB89-40CC-8288-DE82A121DCF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0ED1A19-CB89-40CC-8288-DE82A121DCF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4F6AC77-861D-428E-BFF6-B5235459C1C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4F6AC77-861D-428E-BFF6-B5235459C1C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4F6AC77-861D-428E-BFF6-B5235459C1C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4F6AC77-861D-428E-BFF6-B5235459C1C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC1FC1C0-4B1A-410D-B881-253DBC7E046B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC1FC1C0-4B1A-410D-B881-253DBC7E046B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC1FC1C0-4B1A-410D-B881-253DBC7E046B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC1FC1C0-4B1A-410D-B881-253DBC7E046B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4012852-4656-4F64-BD69-07DABAFF63B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4012852-4656-4F64-BD69-07DABAFF63B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4012852-4656-4F64-BD69-07DABAFF63B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4012852-4656-4F64-BD69-07DABAFF63B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
