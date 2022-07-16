@@ -2,9 +2,9 @@
 
 namespace Packbacker.WPF.Views
 {
-    public partial class PackView : UserControl
+    public partial class GearListView : UserControl
     {
-        public PackView()
+        public GearListView()
         {
             InitializeComponent();
         }

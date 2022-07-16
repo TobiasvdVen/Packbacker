@@ -1,6 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Packbacker.ViewModels;
+using Packbacker.ViewModels.Services;
+using Packbacker.WPF.Services;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace Packbacker.WPF
 {
@@ -22,7 +25,12 @@ namespace Packbacker.WPF
             services.AddSingleton<MainWindow>();
 
             services.AddTransient<MainWindowViewModel>();
-            services.AddTransient<PackViewModel>();
+            services.AddTransient<GearEditorViewModel>();
+            services.AddTransient<GearListViewModel>();
+
+            services.AddTransient<ISaveFileService, SaveFileService>();
+
+            services.AddSingleton(_ => Dispatcher.CurrentDispatcher);
         }
 
         private void Application_Startup(object sender, StartupEventArgs e)

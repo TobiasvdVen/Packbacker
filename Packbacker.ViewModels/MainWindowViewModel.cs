@@ -1,12 +1,27 @@
-﻿namespace Packbacker.ViewModels
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using Packbacker.ViewModels.Services;
+
+namespace Packbacker.ViewModels
 {
-    public class MainWindowViewModel
+    [INotifyPropertyChanged]
+    public partial class MainWindowViewModel
     {
-        public MainWindowViewModel(PackViewModel packViewModel)
+        private readonly ISaveFileService saveFileService;
+
+        public MainWindowViewModel(GearEditorViewModel gearEditorViewModel, ISaveFileService saveFileService)
         {
-            PackViewModel = packViewModel;
+            GearEditorViewModel = gearEditorViewModel;
+
+            this.saveFileService = saveFileService;
         }
 
-        public PackViewModel PackViewModel { get; }
+        public GearEditorViewModel GearEditorViewModel { get; }
+
+        [RelayCommand]
+        public async Task SaveAsync()
+        {
+            await saveFileService.SaveAsync("Hello world!", ".pack", "Pack files (*.pack)|*.pack");
+        }
     }
 }

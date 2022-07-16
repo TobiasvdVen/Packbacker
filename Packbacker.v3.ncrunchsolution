@@ -1,6 +1,18 @@
 ﻿<SolutionConfiguration>
   <Settings>
     <AllowParallelTestExecution>True</AllowParallelTestExecution>
+    <MetricsExclusionList>
+      <Value>Packbacker.ViewModels.Design\Packbacker.ViewModels.Design.csproj</Value>
+      <Value>Packbacker.WPF\Packbacker.WPF.csproj</Value>
+    </MetricsExclusionList>
     <SolutionConfigured>True</SolutionConfigured>
   </Settings>
+  <EngineModes>
+    <EngineMode>
+      <Name>Run unit tests automatically</Name>
+      <Settings>
+        <TestsToExecuteAutomatically>IsNotInProjectWithName 'Packbacker.WPF.Tests'</TestsToExecuteAutomatically>
+      </Settings>
+    </EngineMode>
+  </EngineModes>
 </SolutionConfiguration>

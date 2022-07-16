@@ -1,8 +1,8 @@
 ﻿namespace Packbacker.ViewModels.Design
 {
-    public class DesignPackViewModel : PackViewModel
+    public class DesignGearListViewModel : GearListViewModel
     {
-        public DesignPackViewModel() : base(MockItems())
+        public DesignGearListViewModel() : base(MockItems())
         {
         }
 
