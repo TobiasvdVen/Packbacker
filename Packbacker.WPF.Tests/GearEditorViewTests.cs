@@ -64,14 +64,6 @@ namespace Packbacker.WPF.Tests
                 TextBox directoryField = saveWindow.FindFirstDescendant(c => c.ByName("Address")).FindFirstChild(c => c.ByName("Address")).AsTextBox() ?? throw new Exception("Unable to find field: Address");
                 directoryField.Text = directoryPath;
 
-                //await Task.Delay(1000);
-
-                //previousLocations.Invoke();
-
-                //await Task.Delay(1000);
-
-                //previousLocations.Invoke();
-
                 TextBox fileNameField = saveWindow.FindAllChildren()[0].FindAllChildren()[4].FindFirstChild("1001").AsTextBox();
                 fileNameField.Enter(fileName);
 
@@ -86,17 +78,18 @@ namespace Packbacker.WPF.Tests
                 string filePath = $"{directoryPath}\\{fileName}.pack";
 
                 Assert.True(File.Exists(filePath), $"Save file did not exist: {filePath}");
+
+                TeamCityDetector teamCityDetector = new();
+
+                if (!teamCityDetector.TeamCityDetected)
+                {
+                    // Not deleting the saved file causes NCrunch to never complete the test, the reason for this eludes me...
+                    File.Delete(filePath);
+                }
             }
             finally
             {
-                try
-                {
-                    await packbacker.CloseAsync();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Failed to close packbacker after {AddItemAndSave}: {ex}");
-                }
+                await packbacker.CloseAsync();
             }
         }
 

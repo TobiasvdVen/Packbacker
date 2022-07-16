@@ -6,9 +6,9 @@ namespace Packbacker.WPF.Tests.Infrastructure
     {
         public AutomationDelaysProvider()
         {
-            bool isTeamCity = Environment.GetEnvironmentVariable("TEAMCITY_VERSION") != null;
+            TeamCityDetector teamCityDetector = new();
 
-            if (isTeamCity)
+            if (teamCityDetector.TeamCityDetected)
             {
                 AutomationDelays = new NoDelays();
             }
