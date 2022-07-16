@@ -21,6 +21,9 @@ namespace Packbacker.WPF.Tests
         [Fact]
         public async Task AddItemAndSave()
         {
+            string fileName = Guid.NewGuid().ToString();
+            Console.WriteLine($"Running {nameof(AddItemAndSave)} with file name: {fileName}.");
+
             string packbackerExePath = GetPackbackerExePath();
 
             using AsyncApplication packbacker = AsyncApplication.Launch(packbackerExePath, arguments: null, delays);
@@ -56,11 +59,9 @@ namespace Packbacker.WPF.Tests
                 await Task.Delay(1000);
                 previousLocations.Invoke();
 
-                string fileName = Guid.NewGuid().ToString();
                 string directoryPath = GetSaveDirectoryPath();
 
                 TextBox directoryField = saveWindow.FindFirstDescendant(c => c.ByName("Address")).FindFirstChild(c => c.ByName("Address")).AsTextBox() ?? throw new Exception("Unable to find field: Address");
-                directoryField.Enter(directoryPath);
                 directoryField.Text = directoryPath;
 
                 await Task.Delay(1000);
@@ -85,10 +86,6 @@ namespace Packbacker.WPF.Tests
                 string filePath = $"{directoryPath}\\{fileName}.pack";
 
                 Assert.True(File.Exists(filePath), $"Save file did not exist: {filePath}");
-
-                File.Delete(filePath);
-
-                Assert.False(File.Exists(filePath), $"Failed to delete file: {filePath}");
             }
             finally
             {
