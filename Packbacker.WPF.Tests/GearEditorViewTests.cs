@@ -1,4 +1,6 @@
 using FlaUI.Core.AutomationElements;
+using FlaUI.Core.Input;
+using FlaUI.Core.WindowsAPI;
 using FlaUI.UIA3;
 using FlaUI.UIA3.Async;
 using Packbacker.WPF.Tests.Infrastructure;
@@ -63,6 +65,7 @@ namespace Packbacker.WPF.Tests
 
                 TextBox directoryField = saveWindow.FindFirstDescendant(c => c.ByName("Address")).FindFirstChild(c => c.ByName("Address")).AsTextBox() ?? throw new Exception("Unable to find field: Address");
                 directoryField.Text = directoryPath;
+                Keyboard.Press(VirtualKeyShort.ENTER);
 
                 TextBox fileNameField = saveWindow.FindAllChildren()[0].FindAllChildren()[4].FindFirstChild("1001").AsTextBox();
                 fileNameField.Enter(fileName);
