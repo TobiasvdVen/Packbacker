@@ -12,4 +12,8 @@
     <PackageReference Include="MVVM" Version="1.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Packbacker.Domain\Packbacker.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

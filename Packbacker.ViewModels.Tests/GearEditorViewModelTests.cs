@@ -12,7 +12,7 @@ namespace Packbacker.ViewModels.Tests
             GearEditorViewModel gearEditorViewModel = new(gearListViewModel)
             {
                 AddItemName = "Backpack",
-                AddItemWeight = 16
+                AddItemWeight = "16"
             };
 
             gearEditorViewModel.Add();
@@ -20,7 +20,7 @@ namespace Packbacker.ViewModels.Tests
             ItemViewModel addedItem = gearListViewModel.Items.Single();
 
             Assert.Equal("Backpack", addedItem.Name);
-            Assert.Equal(16, addedItem.Weight);
+            Assert.Equal("16g", addedItem.Weight);
         }
     }
 }

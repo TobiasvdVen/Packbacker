@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Packbacker.Domain.Services;
 using Packbacker.ViewModels;
-using Packbacker.ViewModels.Services;
 using Packbacker.WPF.Services;
 using System.Windows;
 using System.Windows.Threading;

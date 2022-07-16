@@ -64,13 +64,13 @@ namespace Packbacker.WPF.Tests
                 TextBox directoryField = saveWindow.FindFirstDescendant(c => c.ByName("Address")).FindFirstChild(c => c.ByName("Address")).AsTextBox() ?? throw new Exception("Unable to find field: Address");
                 directoryField.Text = directoryPath;
 
-                await Task.Delay(1000);
+                //await Task.Delay(1000);
 
-                previousLocations.Invoke();
+                //previousLocations.Invoke();
 
-                await Task.Delay(1000);
+                //await Task.Delay(1000);
 
-                previousLocations.Invoke();
+                //previousLocations.Invoke();
 
                 TextBox fileNameField = saveWindow.FindAllChildren()[0].FindAllChildren()[4].FindFirstChild("1001").AsTextBox();
                 fileNameField.Enter(fileName);
@@ -89,7 +89,14 @@ namespace Packbacker.WPF.Tests
             }
             finally
             {
-                await packbacker.CloseAsync();
+                try
+                {
+                    await packbacker.CloseAsync();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Failed to close packbacker after {AddItemAndSave}: {ex}");
+                }
             }
         }
 

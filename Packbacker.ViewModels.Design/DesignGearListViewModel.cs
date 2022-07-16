@@ -1,4 +1,6 @@
-﻿namespace Packbacker.ViewModels.Design
+﻿using Packbacker.Domain.Units;
+
+namespace Packbacker.ViewModels.Design
 {
     public class DesignGearListViewModel : GearListViewModel
     {
@@ -10,9 +12,9 @@
         {
             return new List<ItemViewModel>()
             {
-                new ItemViewModel("Backpack", 2300),
-                new ItemViewModel("Tent", 1700),
-                new ItemViewModel("Sleeping Bag", 450)
+                new ItemViewModel("Backpack", new Weight(2300)),
+                new ItemViewModel("Tent", new Weight(1700)),
+                new ItemViewModel("Sleeping Bag", new Weight(450))
             };
         }
     }

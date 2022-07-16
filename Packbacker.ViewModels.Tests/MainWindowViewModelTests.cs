@@ -1,5 +1,5 @@
 ﻿using Moq;
-using Packbacker.ViewModels.Services;
+using Packbacker.Domain.Services;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;

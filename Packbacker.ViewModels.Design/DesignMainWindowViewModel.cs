@@ -1,5 +1,5 @@
 ﻿using Moq;
-using Packbacker.ViewModels.Services;
+using Packbacker.Domain.Services;
 
 namespace Packbacker.ViewModels.Design
 {

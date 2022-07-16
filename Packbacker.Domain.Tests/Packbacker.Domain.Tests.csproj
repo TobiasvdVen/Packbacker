@@ -20,4 +20,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Packbacker.Domain\Packbacker.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

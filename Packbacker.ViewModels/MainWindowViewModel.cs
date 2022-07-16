@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Packbacker.ViewModels.Services;
+using Packbacker.Domain.Services;
 
 namespace Packbacker.ViewModels
 {

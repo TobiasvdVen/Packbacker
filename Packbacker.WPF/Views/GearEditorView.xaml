@@ -15,17 +15,21 @@
         </local:GearListView>
 
         <StackPanel Orientation="Horizontal">
-            <TextBox
-                AutomationProperties.AutomationId="NameField"
-                Text="{Binding AddItemName}"
-                MinWidth="128"
-                Margin="8,8,8,8"></TextBox>
+            <TextBox AutomationProperties.AutomationId="NameField"
+                     Text="{Binding AddItemName}"
+                     MinWidth="128"
+                     Margin="8,8,8,8">
+            </TextBox>
 
-            <TextBox
-                AutomationProperties.AutomationId="WeightField"
-                Text="{Binding AddItemWeight}"
-                MinWidth="128"
-                Margin="8,8,8,8"></TextBox>
+            <TextBox AutomationProperties.AutomationId="WeightField"
+                     Text="{Binding AddItemWeight}"
+                     MinWidth="128"
+                     Margin="8,8,8,8">
+            </TextBox>
+
+            <ComboBox ItemsSource="{Binding AvailableWeightUnits}">
+                
+            </ComboBox>
             
             <Button
                 AutomationProperties.AutomationId="AddButton" 

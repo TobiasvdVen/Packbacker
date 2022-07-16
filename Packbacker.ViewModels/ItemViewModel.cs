@@ -1,16 +1,21 @@
 ﻿using MVVM;
+using Packbacker.Domain.Units;
 
 namespace Packbacker.ViewModels
 {
     public class ItemViewModel : ViewModel
     {
-        public ItemViewModel(string name, int weight)
+        private readonly Weight weight;
+
+        public ItemViewModel(string name, Weight weight)
         {
+            this.weight = weight;
+
             Name = name;
-            Weight = weight;
         }
 
         public string Name { get; set; }
-        public int Weight { get; set; }
+        public string Weight => weight.GetDisplayString(WeightUnit);
+        public WeightUnit WeightUnit { get; set; }
     }
 }

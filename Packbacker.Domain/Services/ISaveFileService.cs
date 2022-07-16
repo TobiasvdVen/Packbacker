@@ -1,4 +1,4 @@
-﻿namespace Packbacker.ViewModels.Services
+﻿namespace Packbacker.Domain.Services
 {
     public interface ISaveFileService
     {
