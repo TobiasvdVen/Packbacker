@@ -21,3 +21,4 @@ Packbacker.ViewModels.Tests/bin
 Packbacker.ViewModels.Tests/obj
 Packbacker.WPF.Tests/obj
 Packbacker.WPF.Tests/bin
+Packbacker.WPF.Tests/TestOutput/*.pack
