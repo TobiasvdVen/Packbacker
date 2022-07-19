@@ -1,24 +1,30 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Packbacker.Domain;
+using Packbacker.Domain.Abstractions;
 using Packbacker.Domain.Units;
 using Packbacker.ViewModels.Units;
+using System.Collections.ObjectModel;
 
 namespace Packbacker.ViewModels
 {
     [INotifyPropertyChanged]
     public partial class GearEditorViewModel
     {
+        private readonly IItemStore itemStore;
+
         [ObservableProperty]
         private string? addItemName;
 
         [ObservableProperty]
-        private string addItemWeight;
+        private string? addItemWeight;
 
-        public GearEditorViewModel(GearListViewModel gearListViewModel)
+        public GearEditorViewModel(GearListViewModel gearListViewModel, IItemStore itemStore)
         {
-            addItemWeight = string.Empty;
+            this.itemStore = itemStore;
 
             GearListViewModel = gearListViewModel;
+
             AvailableWeightUnits = Enum.GetValues<WeightUnit>().Select(unit => new WeightUnitViewModel(unit));
             SelectedWeightUnit = AvailableWeightUnits.First();
         }
@@ -30,16 +36,31 @@ namespace Packbacker.ViewModels
         public WeightUnitViewModel SelectedWeightUnit { get; set; }
 
         [RelayCommand]
-        public void Add()
+        public async Task AddAsync()
         {
-            if (AddItemName == null)
+            if (AddItemName == null || AddItemWeight == null)
             {
                 return;
             }
 
-            Weight weight = Weight.Parse(addItemWeight, SelectedWeightUnit.Unit);
+            Weight weight = Weight.Parse(AddItemWeight, SelectedWeightUnit.Unit);
+            Item item = new(Guid.NewGuid(), AddItemName, weight, SelectedWeightUnit.Unit);
 
-            GearListViewModel.AddItem(new ItemViewModel(AddItemName, weight));
+            await itemStore.AddItemAsync(item);
+
+            GearListViewModel.AddItem(new ItemViewModel(item));
+        }
+
+        public IEnumerable<Item> ExportGear()
+        {
+            return GearListViewModel.Items.Select(itemViewModel => itemViewModel.ToItem());
+        }
+
+        internal void LoadGear(IEnumerable<Item> items)
+        {
+            IEnumerable<ItemViewModel> itemViewModels = items.Select(item => new ItemViewModel(item));
+
+            GearListViewModel.Items = new ObservableCollection<ItemViewModel>(itemViewModels);
         }
     }
 }

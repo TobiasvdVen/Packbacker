@@ -7,6 +7,14 @@
 	<WarningsAsErrors>Nullable</WarningsAsErrors>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <LangVersion>preview</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <LangVersion>preview</LangVersion>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Moq" Version="4.18.1" />
     <PackageReference Include="MVVM" Version="1.0.0" />

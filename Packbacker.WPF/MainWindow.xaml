@@ -12,7 +12,7 @@
         <Menu AutomationProperties.AutomationId="Menus">
             <MenuItem Header="File" AutomationProperties.AutomationId="File">
                 <MenuItem Header="New..." AutomationProperties.AutomationId="New..."></MenuItem>
-                <MenuItem Header="Open..." AutomationProperties.AutomationId="Open..."></MenuItem>
+                <MenuItem Header="Open..." AutomationProperties.AutomationId="Open..." Command="{Binding OpenCommand}"></MenuItem>
                 <MenuItem Header="Save" AutomationProperties.AutomationId="Save" Command="{Binding SaveCommand}"></MenuItem>
                 <MenuItem Header="Save As..." AutomationProperties.AutomationId="Save As..."></MenuItem>
             </MenuItem>

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Win32;
-using Packbacker.Domain.Services;
+using Packbacker.Domain.Abstractions;
+using System;
 using System.IO;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Threading;
 
@@ -16,12 +16,12 @@ namespace Packbacker.WPF.Services
             this.dispatcher = dispatcher;
         }
 
-        public async Task<bool> SaveAsync(string content, string? defaultExtension = null, string? filter = null)
+        public async Task<bool> SaveAsync(byte[] content, string? defaultExtension = null, string? filter = null)
         {
             SaveFileDialog saveFileDialog = new()
             {
                 AddExtension = defaultExtension != null,
-                DefaultExt = defaultExtension,
+                DefaultExt = defaultExtension ?? string.Empty,
                 ValidateNames = true,
                 Filter = filter ?? string.Empty
             };
@@ -34,9 +34,7 @@ namespace Packbacker.WPF.Services
             if (fileSelected)
             {
                 using FileStream file = File.OpenWrite(saveFileDialog.FileName);
-                using StreamWriter writer = new(file, Encoding.UTF8);
-
-                await writer.WriteAsync(content);
+                await file.WriteAsync(new ReadOnlyMemory<byte>(content));
             }
 
             return fileSelected;

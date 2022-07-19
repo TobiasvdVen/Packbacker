@@ -1,11 +1,12 @@
 ﻿using Moq;
-using Packbacker.Domain.Services;
+using Packbacker.Domain.Abstractions;
 
 namespace Packbacker.ViewModels.Design
 {
     public class DesignMainWindowViewModel : MainWindowViewModel
     {
-        public DesignMainWindowViewModel() : base(MockGearEditorViewModel(), new Mock<ISaveFileService>().Object)
+        public DesignMainWindowViewModel()
+            : base(MockGearEditorViewModel(), new Mock<ISaveFileService>().Object, new Mock<IOpenFileService>().Object, new Mock<IItemStore>().Object)
         {
         }
 

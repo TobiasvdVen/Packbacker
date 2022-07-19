@@ -1,4 +1,5 @@
-﻿using Packbacker.Domain.Units;
+﻿using Packbacker.Domain;
+using Packbacker.Domain.Units;
 
 namespace Packbacker.ViewModels.Design
 {
@@ -12,9 +13,9 @@ namespace Packbacker.ViewModels.Design
         {
             return new List<ItemViewModel>()
             {
-                new ItemViewModel("Backpack", new Weight(2300)),
-                new ItemViewModel("Tent", new Weight(1700)),
-                new ItemViewModel("Sleeping Bag", new Weight(450))
+                new ItemViewModel(new Item(Guid.NewGuid(), "Backpack", new Weight(2300), WeightUnit.Grams)),
+                new ItemViewModel(new Item(Guid.NewGuid(), "Tent", new Weight(1700), WeightUnit.Grams)),
+                new ItemViewModel(new Item(Guid.NewGuid(), "Sleeping Bag", new Weight(450), WeightUnit.Grams))
             };
         }
     }

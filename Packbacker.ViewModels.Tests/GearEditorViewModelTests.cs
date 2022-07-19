@@ -1,21 +1,34 @@
-﻿using System.Linq;
+﻿using Moq;
+using Packbacker.Domain.Abstractions;
+using System.Linq;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace Packbacker.ViewModels.Tests
 {
     public class GearEditorViewModelTests
     {
-        [Fact]
-        public void GivenItemNameAndWeight_WhenAddButtonPressed_ItemIsAddedToList()
+        Mock<IItemStore> itemStore;
+
+        GearListViewModel gearListViewModel;
+        GearEditorViewModel gearEditorViewModel;
+
+        public GearEditorViewModelTests()
         {
-            GearListViewModel gearListViewModel = new(Enumerable.Empty<ItemViewModel>());
-            GearEditorViewModel gearEditorViewModel = new(gearListViewModel)
+            itemStore = new Mock<IItemStore>();
+
+            gearListViewModel = new(Enumerable.Empty<ItemViewModel>());
+            gearEditorViewModel = new(gearListViewModel, itemStore.Object)
             {
                 AddItemName = "Backpack",
                 AddItemWeight = "16"
             };
+        }
 
-            gearEditorViewModel.Add();
+        [Fact]
+        public async Task GivenItemNameAndWeight_WhenAddButtonPressed_ItemIsAddedToList()
+        {
+            await gearEditorViewModel.AddAsync();
 
             ItemViewModel addedItem = gearListViewModel.Items.Single();
 

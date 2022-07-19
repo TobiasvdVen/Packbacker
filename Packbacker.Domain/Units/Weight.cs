@@ -1,6 +1,6 @@
 ﻿namespace Packbacker.Domain.Units
 {
-    public class Weight
+    public record Weight
     {
         public Weight(int grams)
         {
