@@ -44,18 +44,22 @@ namespace Packbacker.ViewModels
         [RelayCommand]
         public async Task OpenAsync()
         {
-            byte[] fileData = await openFileService.OpenFileAsync();
-            using MemoryStream stream = new(fileData);
+            byte[]? fileData = await openFileService.OpenFileAsync();
 
-            Pack? pack = await JsonSerializer.DeserializeAsync(stream, PackContext.Default.Pack);
-
-            if (pack != null)
+            if (fileData != null)
             {
-                IEnumerable<Item> items = await itemStore.GetItemsAsync();
+                using MemoryStream stream = new(fileData);
 
-                IEnumerable<Item> itemsInPack = items.Where(item => pack.ItemIds.Contains(item.Id));
+                Pack? pack = await JsonSerializer.DeserializeAsync(stream, PackContext.Default.Pack);
 
-                GearEditorViewModel.LoadGear(itemsInPack);
+                if (pack != null)
+                {
+                    IEnumerable<Item> items = await itemStore.GetItemsAsync();
+
+                    IEnumerable<Item> itemsInPack = items.Where(item => pack.ItemIds.Contains(item.Id));
+
+                    GearEditorViewModel.LoadGear(itemsInPack);
+                }
             }
         }
     }
