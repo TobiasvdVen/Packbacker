@@ -4,6 +4,7 @@ using Packbacker.Domain.Services;
 using Packbacker.ViewModels;
 using Packbacker.WPF.Services;
 using System;
+using System.IO;
 using System.IO.Abstractions;
 using System.Windows.Threading;
 
@@ -30,7 +31,7 @@ namespace Packbacker.WPF
             {
                 return new FileItemStore(
                     s.GetRequiredService<IFileSystem>(),
-                    Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
+                    Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Packbacker"));
             });
 
             return services;
