@@ -19,6 +19,9 @@ namespace Packbacker.ViewModels
         [ObservableProperty]
         private string? addItemWeight;
 
+        [ObservableProperty]
+        private WeightUnitViewModel selectedWeightUnit;
+
         public GearEditorViewModel(GearListViewModel gearListViewModel, IItemStore itemStore)
         {
             this.itemStore = itemStore;
@@ -26,14 +29,12 @@ namespace Packbacker.ViewModels
             GearListViewModel = gearListViewModel;
 
             AvailableWeightUnits = Enum.GetValues<WeightUnit>().Select(unit => new WeightUnitViewModel(unit));
-            SelectedWeightUnit = AvailableWeightUnits.First();
+            selectedWeightUnit = AvailableWeightUnits.First();
         }
 
         public GearListViewModel GearListViewModel { get; }
 
         public IEnumerable<WeightUnitViewModel> AvailableWeightUnits { get; }
-
-        public WeightUnitViewModel SelectedWeightUnit { get; set; }
 
         [RelayCommand]
         public async Task AddAsync()

@@ -27,7 +27,10 @@
                      Margin="8,8,8,8">
             </TextBox>
 
-            <ComboBox ItemsSource="{Binding AvailableWeightUnits}">
+            <ComboBox 
+                ItemsSource="{Binding AvailableWeightUnits}" 
+                SelectedItem="{Binding SelectedWeightUnit}"
+                IsSynchronizedWithCurrentItem="True">
                 
             </ComboBox>
             
